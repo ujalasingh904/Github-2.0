@@ -18,7 +18,7 @@ const app = express();
 const port = process.env.PORT || 5000;
 app.use(cors(
     {
-        origin: process.env.CLIENT_URL,
+        origin: "https://github-20.vercel.app/",
         credentials: true
     }
 ));
