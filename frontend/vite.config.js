@@ -6,10 +6,10 @@ export default defineConfig({
   plugins: [react()],
   server: {
     port: 3000,
-    proxy:{
-      '/api':{
-        target: 'https://github-20-backend.vercel.app'
-      }
-    }
+    // proxy:{
+    //   '/api':{
+    //     target: 'https://github-20-backend.vercel.app'
+    //   }
+    // }
   }
 })
