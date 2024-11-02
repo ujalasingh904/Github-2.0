@@ -7,9 +7,9 @@ const router = Router();
 
 router.get("/github", passport.authenticate('github', { scope: ['user:email'] }))
 router.get("/github/callback",
-    passport.authenticate('github', { failureRedirect: process.env.CLIENT_URL + '/login' }),
+    passport.authenticate('github', { failureRedirect: 'https://github-2-frontend.netlify.app/login' }),
     function (req, res) {
-        res.redirect(process.env.CLIENT_URL);
+        res.redirect('https://github-2-frontend.netlify.app/');
     })
 
 router.get("/check", (req, res) => {
