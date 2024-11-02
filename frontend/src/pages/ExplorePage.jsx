@@ -14,7 +14,9 @@ const ExplorePage = () => {
 	const exploreRepos = async (language) => {
 		setLoading(true)
 		try {
-			const { data: repos } = await axios.get(`https://github-backend.netlify.app/api/explore/repos/${language}`)
+			const { data: repos } = await axios.get(`https://github-backend.netlify.app/api/explore/repos/${language}`,
+				{withCredentials: true}
+			)
 
 			setRepos(repos.items)
 			setSelectedLanguage(language)
