@@ -10,7 +10,7 @@ export const Logout = () => {
 
 	const handleLogout = async () =>{
         try {
-			const {data: res} = await axios.get('https://github-20-backend.vercel.app/api/auth/logout', {withCredentials: true});
+			const {data: res} = await axios.get('https://github-backend.netlify.app/api/auth/logout', {withCredentials: true});
 			setAuthUser(null);
 			toast.success(res.message);
 		} catch (error) {

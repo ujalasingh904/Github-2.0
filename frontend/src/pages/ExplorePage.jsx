@@ -14,7 +14,7 @@ const ExplorePage = () => {
 	const exploreRepos = async (language) => {
 		setLoading(true)
 		try {
-			const { data: repos } = await axios.get(`https://github-20-backend.vercel.app/api/explore/repos/${language}`)
+			const { data: repos } = await axios.get(`https://github-backend.netlify.app/api/explore/repos/${language}`)
 
 			setRepos(repos.items)
 			setSelectedLanguage(language)

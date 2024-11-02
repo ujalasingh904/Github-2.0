@@ -16,7 +16,7 @@ const HomePage = () => {
 	const getUserprofileAndRepos = async (username = "ujalasingh904") => {
 		setLoading(true)
 		try {
-			const { data: { userProfile, repos } } = await axios.get(`https://github-20-backend.vercel.app/api/users/profile/${username}`)
+			const { data: { userProfile, repos } } = await axios.get(`https://github-backend.netlify.app/api/users/profile/${username}`)
 			setUserProfile(userProfile)
 			setRepos(repos)
 

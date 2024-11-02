@@ -8,7 +8,7 @@ export default defineConfig({
     port: 3000,
     // proxy:{
     //   '/api':{
-    //     target: 'https://github-20-backend.vercel.app'
+    //     target: 'https://github-backend.netlify.app'
     //   }
     // }
   }
