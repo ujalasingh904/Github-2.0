@@ -9,7 +9,7 @@ router.get("/github", passport.authenticate('github', { scope: ['user:email'] })
 router.get("/github/callback",
     passport.authenticate('github', { failureRedirect: 'https://github-2-frontend.netlify.app/login' }),
     function (req, res) {
-        res.redirect('https://github-2-frontend.netlify.app/');
+        res.redirect('https://github-2-frontend.netlify.app');
     })
 
 router.get("/check", (req, res) => {

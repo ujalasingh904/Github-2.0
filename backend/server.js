@@ -17,7 +17,7 @@ dotenv.config();
 const app = express();
 const port = process.env.PORT || 5000;
 app.use(cors({
-        origin: "https://github-2-frontend.netlify.app/",
+        origin: "https://github-2-frontend.netlify.app",
         credentials: true
     }
 ));
