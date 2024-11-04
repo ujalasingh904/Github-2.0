@@ -8,9 +8,9 @@ const router = Router();
 
 router.get("/github", passport.authenticate('github', { scope: ['user:email'] }))
 router.get("/github/callback",
-    passport.authenticate('github', { failureRedirect: 'https://github-2-0-indol.vercel.app/login' }),
+    passport.authenticate('github', { failureRedirect: 'http://localhost:3000/login' }),
     function (req, res) {
-        res.redirect('https://github-2-0-indol.vercel.app/login');
+        res.redirect('http://localhost:3000/login');
     })
 
 router.get("/check", (req, res) => {

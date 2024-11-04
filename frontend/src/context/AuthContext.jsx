@@ -19,7 +19,7 @@ export const AuthContextProvider = ({ children }) => {
         const checkUserLoggedIn = async () => {
             setLoading(true);
             try {
-                const { data: res } = await axios.get('https://github-2-0-dxyu-backend.vercel.app/api/auth/check',
+                const { data: res } = await axios.get('/api/auth/check',
                     { withCredentials: true }
                 );
                 setAuthUser(res.user);

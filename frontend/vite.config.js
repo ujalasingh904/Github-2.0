@@ -8,7 +8,7 @@ export default defineConfig({
     port: 3000,
     proxy:{
       '/api':{
-        target: 'https://github-2-0-dxyu-backend.vercel.app',
+        target: 'http://localhost:5000',
       }
     }
   }

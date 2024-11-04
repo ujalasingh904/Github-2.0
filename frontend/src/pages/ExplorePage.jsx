@@ -14,7 +14,7 @@ const ExplorePage = () => {
 	const exploreRepos = async (language) => {
 		setLoading(true)
 		try {
-			const { data: repos } = await axios.get(`https://github-2-0-dxyu-backend.vercel.app/api/explore/repos/${language}`,
+			const { data: repos } = await axios.get(`/api/explore/repos/${language}`,
 				{withCredentials: true}
 			)
 

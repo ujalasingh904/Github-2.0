@@ -8,52 +8,35 @@ import connectToDb from "./db/connectToDb.js";
 import "./passport/github.passport.js";
 import passport from "passport";
 import session from "express-session";
+import path from "path";
 
 dotenv.config();
 
 const app = express();
 const port = process.env.PORT || 5000;
+const __dirname = path.resolve();
 
-// Configure CORS to allow requests only from your frontend URL and enable credentials
 app.use(
   cors({
-    origin: "https://github-2-0-indol.vercel.app", // specify your frontend URL
+    origin: process.env.CLIENT_URL,
     credentials: true,
   })
 );
 
-// Session setup with a secure secret
-app.use(
-  session({
-    secret: process.env.SESSION_SECRET || 'keyboard cat', 
-    resave: false,
-    saveUninitialized: false,
-    cookie: {
-      secure: process.env.NODE_ENV === "production", // secure cookies in production
-      httpOnly: true,
-      sameSite: "lax", // adjust based on your setup
-    },
-  })
-);
 
-app.use((err, req, res, next) => {
-    res.header("Access-Control-Allow-Origin", "https://github-2-0-indol.vercel.app");
-    res.header("Access-Control-Allow-Credentials", "true");
-    res.status(err.status || 500).json({ message: err.message });
-});
-
-
-  
+app.use(session({ secret: "keyboard cat", resave: false, saveUninitialized: false }));
 app.use(passport.initialize());
 app.use(passport.session());
 
-app.get("/", (req, res) => {
-  res.send("Hello World");
-});
 
 app.use("/api/auth", authRoutes);
 app.use("/api/users", userRoutes);
 app.use("/api/explore", exploreRoutes);
+
+app.use(express.static(path.join(__dirname, "/frontend/dist")));
+app.get("*", (req, res) => {
+  res.sendFile(path.join(__dirname, "frontend", "dist", "index.html")); 
+});
 
 app.listen(port, () => {
   console.log("Server is running on port", port);
