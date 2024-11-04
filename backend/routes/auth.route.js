@@ -5,6 +5,10 @@ import passport from "passport";
 
 const router = Router();
 
+router.get("/", (req, res) => {
+    res.send("Auth route")
+})
+
 router.get("/github", passport.authenticate('github', { scope: ['user:email'] }))
 router.get("/github/callback",
     passport.authenticate('github', { failureRedirect: 'https://github-2-0-indol.vercel.app/login' }),
