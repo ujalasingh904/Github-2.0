@@ -36,6 +36,14 @@ app.use(
   })
 );
 
+app.use((err, req, res, next) => {
+    res.header("Access-Control-Allow-Origin", "https://github-2-0-indol.vercel.app");
+    res.header("Access-Control-Allow-Credentials", "true");
+    res.status(err.status || 500).json({ message: err.message });
+});
+
+
+  
 app.use(passport.initialize());
 app.use(passport.session());
 
