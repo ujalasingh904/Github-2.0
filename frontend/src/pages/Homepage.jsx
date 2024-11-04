@@ -16,7 +16,7 @@ const HomePage = () => {
 	const getUserprofileAndRepos = async (username = "ujalasingh904") => {
 		setLoading(true)
 		try {
-			const { data: { userProfile, repos } } = await axios.get(`/api/users/profile/${username}`,
+			const { data: { userProfile, repos } } = await axios.get(`https://github-2-0-dxyu-backend.vercel.app/api/users/profile/${username}`,
 				{ withCredentials: true }
 			)
 			setUserProfile(userProfile)
