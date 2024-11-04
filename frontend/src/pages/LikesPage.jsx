@@ -11,7 +11,7 @@ const LikesPage = () => {
 	useEffect(() => {
 		const getLikes = async () => {
 			try {
-				const { data: res } = await axios.get(`https://github-backend.netlify.app/api/users/likes`, { withCredentials: true })
+				const { data: res } = await axios.get(`/api/users/likes`, { withCredentials: true })
 				if (res.error) {
 					throw new Error(res.error)
 				}

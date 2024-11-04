@@ -11,7 +11,7 @@ const LikeProfile = ({ userProfile }) => {
     const handleLikeprofile = async () => {
         try {
 
-            const { data: res } = await axios.post(`https://github-backend.netlify.app/api/users/like/${userProfile.login}`,
+            const { data: res } = await axios.post(`/api/users/like/${userProfile.login}`,
                 { withCredentials: true }
             )
 

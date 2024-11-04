@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 const LoginPage = () => {
 	const handleLogin = async () => {
-		window.location.href = "https://github-backend.netlify.app/api/auth/github";
+		window.location.href = "/api/auth/github";
 	}
 	return (
 		<div className='flex flex-col items-center justify-center px-6 py-8 mx-auto h-screen lg:py-0'>
