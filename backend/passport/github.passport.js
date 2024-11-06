@@ -1,7 +1,7 @@
 import passport from 'passport';
 import { Strategy as GitHubStrategy } from 'passport-github2';
 import dotenv from 'dotenv';
-import userModel from '../models/user.model.js';
+import User from '../models/user.model';
 dotenv.config();
 
 passport.serializeUser(function (user, done) {
@@ -18,9 +18,9 @@ passport.use(new GitHubStrategy({
     callbackURL: "http://localhost:5000/api/auth/github/callback"
 },
     async function (accessToken, refreshToken, profile, done) {
-        const user = await userModel.findOne({ username: profile.username });
+        const user = await User.findOne({ username: profile.username });
         if (!user) {
-            const newUser = new userModel({
+            const newUser = new User({
                 username: profile.username,
                 name: profile.displayName,
                 profileUrl: profile.profileUrl,
